@@ -186,7 +186,7 @@ PPROF_PORT=6060
 
 ## Architecture
 
-### Layered Architecture
+### Clean Architecture
 
 The application follows a clean architecture pattern with clear separation of concerns:
 
