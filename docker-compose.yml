@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: my-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - infrastructure_default
+
+  service-courier:
+    build: .
+    ports:
+      - "${COURIER_PORT}:${LOCALHOST}"
+    env_file:
+      - .env
+    environment:
+      - PORT=${LOCALHOST}
+      - ORDER_SERVICE_HOST=${ORDER_SERVICE_HOST}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - infrastructure_default
+
+networks:
+  infrastructure_default:
+    external: true
+
+volumes:
+  pgdata: 
