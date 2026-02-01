@@ -16,16 +16,16 @@ This courier service is designed to efficiently manage delivery operations with 
 
 ## Features
 
-- ✅ RESTful API for courier and delivery management
-- ✅ gRPC protocol support for order services
-- ✅ PostgreSQL persistence with migrations
-- ✅ Kafka consumer for event processing
-- ✅ Token bucket rate limiting
-- ✅ Prometheus metrics and monitoring
-- ✅ pprof profiling server support
-- ✅ Docker and Docker Compose support
-- ✅ Comprehensive test coverage with integration tests
-- ✅ Graceful shutdown with signal handling
+- RESTful API for courier and delivery management
+- gRPC protocol support for order services
+- PostgreSQL persistence with migrations
+- Kafka consumer for event processing
+- Token bucket rate limiting
+- Prometheus metrics and monitoring
+- pprof profiling server support
+- Docker and Docker Compose support
+- Comprehensive test coverage with integration tests
+- Graceful shutdown with signal handling
 
 ## Tech Stack
 
