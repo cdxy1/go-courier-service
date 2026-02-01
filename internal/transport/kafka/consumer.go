@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/cdxy1/go-courier-service/internal/model"
 	"github.com/Shopify/sarama"
+	"github.com/cdxy1/go-courier-service/internal/model"
 )
 
 type OrderEventHandler interface {
